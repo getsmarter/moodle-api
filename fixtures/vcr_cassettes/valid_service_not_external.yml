@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://dev.vle.getsmarter.co.za/webservice/rest/server.php?criteria%5B0%5D%5Bkey%5D=firstname&criteria%5B0%5D%5Bvalue%5D=Jon&moodlewsrestformat=json&wsfunction=core_user_get_users&wstoken=072556801bf07076fff6bff2a463b7c5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Accept:
+      - json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 Jul 2015 12:44:52 GMT
+      Server:
+      - Apache/2.4.9 (Unix) PHP/5.5.14
+      X-Powered-By:
+      - PHP/5.5.14
+      Cache-Control:
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Accept-Ranges:
+      - none
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '1126'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"exception":"webservice_access_exception","errorcode":"accessexception","message":"Access
+        control exception","debuginfo":"Access to the function core_user_get_users()
+        is not allowed.\n                     There could be multiple reasons for
+        this:\n                     1. The service linked to the user token does not
+        contain the function.\n                     2. The service is user-restricted
+        and the user is not listed.\n                     3. The service is IP-restricted
+        and the user IP is not listed.\n                     4. The service is time-restricted
+        and the time has expired.\n                     5. The token is time-restricted
+        and the time has expired.\n                     6. The service requires a
+        specific capability which the user does not have.\n                     7.
+        The function is called with username\/password (no user token is sent)\n                     and
+        none of the services has the function to allow the user.\n                     These
+        settings can be found in Administration > Site administration\n                     >
+        Plugins > Web services > External services and Manage tokens."}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://dev.vle.getsmarter.co.za/webservice/rest/server.php?criteria%5B0%5D%5Bkey%5D=firstname&criteria%5B0%5D%5Bvalue%5D=Jon&moodlewsrestformat=json&wsfunction=core_user_get_users&wstoken=072556801bf07076fff6bff2a463b7c5
+  recorded_at: Wed, 01 Jul 2015 12:44:52 GMT
+recorded_with: VCR 2.9.3

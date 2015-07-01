@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://dev.vle.getsmarter.co.za/webservice/rest/server.php?criteria%5B0%5D%5Bkey%5D=firstname&criteria%5B0%5D%5Bvalue%5D=Jon&moodlewsrestformat=json&wsfunction=core_user_get_users_invalid&wstoken=072556801bf07076fff6bff2a463b7c5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Accept:
+      - json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 Jul 2015 12:33:57 GMT
+      Server:
+      - Apache/2.4.9 (Unix) PHP/5.5.14
+      X-Powered-By:
+      - PHP/5.5.14
+      Cache-Control:
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Accept-Ranges:
+      - none
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '264'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"exception":"dml_missing_record_exception","errorcode":"invalidrecord","message":"Can
+        not find data record in database table external_functions.","debuginfo":"SELECT
+        * FROM {external_functions} WHERE name = ?\n[array (\n  0 => ''core_user_get_users_invalid'',\n)]"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://dev.vle.getsmarter.co.za/webservice/rest/server.php?criteria%5B0%5D%5Bkey%5D=firstname&criteria%5B0%5D%5Bvalue%5D=Jon&moodlewsrestformat=json&wsfunction=core_user_get_users_invalid&wstoken=072556801bf07076fff6bff2a463b7c5
+  recorded_at: Wed, 01 Jul 2015 12:33:57 GMT
+recorded_with: VCR 2.9.3
