@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://dev.vle.getsmarter.co.za/webservice/rest/server.php?courseid=92&moodlewsrestformat=json&wsfunction=local_getsmarter_get_quiz_grades&wstoken=072556801bf07076fff6bff2a463b7c5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Accept:
+      - json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 02 Jul 2015 07:10:48 GMT
+      Server:
+      - Apache/2.4.9 (Unix) PHP/5.5.14
+      X-Powered-By:
+      - PHP/5.5.14
+      Cache-Control:
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Accept-Ranges:
+      - none
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://dev.vle.getsmarter.co.za/webservice/rest/server.php?courseid=92&moodlewsrestformat=json&wsfunction=local_getsmarter_get_quiz_grades&wstoken=072556801bf07076fff6bff2a463b7c5
+  recorded_at: Thu, 02 Jul 2015 07:10:48 GMT
+recorded_with: VCR 2.9.3

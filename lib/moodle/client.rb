@@ -1,38 +1,24 @@
 require 'typhoeus'
+require 'json'
 
 module Moodle
   class Client
     attr_reader :web_service_name, :filter_params
 
-    # def initialize name, filter_params
-    #   @name = name
-    #   @filter_params = filter_params
-    # end
+    def make_request web_service_name, filter_params = {}
+      @web_service_name = web_service_name
+      @filter_params = filter_params
 
-    def method_missing message, *args, &block
-      @web_service_name = message
-      @filter_params = args.first
-
-      if available_web_service? message
-        resolve_request
+      if available_web_service?(web_service_name)
+        request
+        raise_response_exceptions
+        response
       else
-        super
+        raise_service_restriction_exception
       end
     end
 
-    def available_web_service? name
-      Moodle.configuration.available_web_services.include?(name.to_sym)
-    end
-
-    def make_request name, filter_params
-
-    end
-
-    def resolve_request
-      request
-      raise MoodleError, response["message"] if request_resulted_in_exception?
-      response
-    end
+    private
 
     def request
       @request ||= Typhoeus.post(Moodle.configuration.api_url,
@@ -40,18 +26,34 @@ module Moodle
                                  headers: { 'Accept' => "json" })
     end
 
+    def raise_response_exceptions
+      if request_resulted_in_exception?
+        message = response["message"]
+        raise MoodleError, message
+      end
+    end
+
     def response
       JSON.parse(request.body)
     end
 
+    def raise_service_restriction_exception
+      message = "Ensure the web service is available - check Moodle.configuration.available_web_services"
+      raise ServiceRestrictionError, message
+    end
+
     def request_resulted_in_exception?
-      response['exception']
+      response.is_a?(Hash) && response['exception'] # exceptions should always be in a hash
     end
 
     def request_params
       filter_params.merge!({ moodlewsrestformat: Moodle.configuration.format,
                              wsfunction: web_service_name,
                              wstoken: Moodle.configuration.token })
+    end
+
+    def available_web_service? name
+      Moodle.configuration.available_web_services.include?(name.to_sym)
     end
   end
 end
