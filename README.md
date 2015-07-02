@@ -68,7 +68,15 @@ params = { 'criteria[0][key]' => 'firstname', 'criteria[0][value]' => 'Jon' }
 Moodle.core_user_get_users(params)
 ```
 
-For documentation on all the web services check your moodle site at `http://my_moodle_instance.com/admin/webservice/documentation.php`.
+## Documentation
+
+For documentation on all the web services check your moodle site at:
+- http://my_moodle_instance.com/admin/webservice/documentation.php
+
+Useful links:
+- https://docs.moodle.org/20/en/Using_web_services#Creating_a_service
+- https://docs.moodle.org/dev/Web_service_API_functions
+
 
 ## Development
 
