@@ -1,8 +1,6 @@
 # Moodle
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/moodle`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A ruby wrapper for the Moodle REST API.
 
 ## Installation
 
@@ -14,7 +12,7 @@ gem 'moodle'
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -22,13 +20,34 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Different ways to configure gem.
+
+```
+# Pass block to configure
+ Moodle.configure do|c|
+  c.host = 'http://dev.vle.getsmarter.co.za'
+  c.token = '072556801bf07076fff6bff2a463b7c5'
+  c.available_web_services = [:core_user_get_users]
+end
+
+# Set configuration values individually
+Moodle.configuration.host = 'http://dev.vle.getsmarter.co.za'
+Moodle.configuration.token = '072556801bf07076fff6bff2a463b7c5'
+Moodle.configuration.available_web_services = [:core_user_get_users]
+
+# Pass options hash to configure
+Moodle.configure({host: 'http://dev.vle.getsmarter.co.za',
+                  token: '072556801bf07076fff6bff2a463b7c5',
+                  available_web_services: [:core_user_get_users]})
+```
+
+Moodle requires users to expose [web service functions](https://docs.moodle.org/dev/Web_service_API_functions) in order for them to be used. As an additional precaution `available_web_services` configuration item has been created to allow developers to control what services are available. This stores an array of web service function names as symbols.
+
+Note if a function is not restricted in Moodle, but is in the configuration, it will not be available and visa versa.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+A bundle install should get you going. Rspec, guard and vcr is leveraged for testing.
 
 ## Contributing
 
