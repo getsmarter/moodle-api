@@ -9,13 +9,9 @@ module Moodle
       @web_service_name = web_service_name
       @filter_params = filter_params
 
-      if available_web_service?(web_service_name)
-        request
-        raise_response_exceptions
-        response
-      else
-        raise_service_restriction_exception
-      end
+      request
+      raise_response_exceptions
+      response
     end
 
     private
@@ -37,23 +33,15 @@ module Moodle
       JSON.parse(request.body)
     end
 
-    def raise_service_restriction_exception
-      message = "Ensure the web service is available - check Moodle.configuration.available_web_services"
-      raise ServiceRestrictionError, message
-    end
-
     def request_resulted_in_exception?
-      response.is_a?(Hash) && response['exception'] # exceptions should always be in a hash
+      # exceptions should always be in a hash and have the key 'exception'
+      response.is_a?(Hash) && response['exception']
     end
 
     def request_params
       filter_params.merge!({ moodlewsrestformat: Moodle.configuration.format,
                              wsfunction: web_service_name,
                              wstoken: Moodle.configuration.token })
-    end
-
-    def available_web_service? name
-      Moodle.configuration.available_web_services.include?(name.to_sym)
     end
   end
 end

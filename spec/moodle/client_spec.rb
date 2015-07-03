@@ -14,7 +14,6 @@ module Moodle
         Moodle.configure do|c|
           c.host = 'http://dev.vle.getsmarter.co.za'
           c.token = '072556801bf07076fff6bff2a463b7c5'
-          c.available_web_services = [:core_user_get_users, :local_getsmarter_get_quiz_grades]
         end
       end
 
@@ -27,8 +26,6 @@ module Moodle
       end
 
       it 'raises moodle error if incorrect method name is used' do
-        Moodle.configuration.available_web_services << :core_user_get_users_invalid
-
         VCR.use_cassette('invalid_service') do
           expect {
             Moodle::Client.new.make_request(:core_user_get_users_invalid, params)
@@ -41,16 +38,6 @@ module Moodle
           expect {
             Moodle::Client.new.make_request(:core_user_get_users, params)
           }.to raise_error(Moodle::MoodleError, "Access control exception")
-        end
-      end
-
-      it 'only gives access to available services in the configuration' do
-        Moodle.configuration.available_web_services.delete(:core_user_get_users)
-
-        VCR.use_cassette('valid_service') do
-          expect {
-            Moodle::Client.new.make_request(:core_user_get_users, params)
-          }.to raise_error("Ensure the web service is available - check Moodle.configuration.available_web_services")
         end
       end
 
@@ -69,7 +56,6 @@ module Moodle
         Moodle.configure do|c|
           c.host = 'http://dev.vle.getsmarter.co.za'
           c.token = 'invalidtoken'
-          c.available_web_services = [:core_user_get_users]
         end
       end
 

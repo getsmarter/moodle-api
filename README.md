@@ -29,23 +29,18 @@ Different ways to configure gem.
  Moodle.configure do|c|
   c.host = 'http://dev.vle.getsmarter.co.za'
   c.token = '072556801bf07076fff6bff2a463b7c5'
-  c.available_web_services = [:core_user_get_users]
 end
 
 # Set configuration values individually
 Moodle.configuration.host = 'http://dev.vle.getsmarter.co.za'
 Moodle.configuration.token = '072556801bf07076fff6bff2a463b7c5'
-Moodle.configuration.available_web_services = [:core_user_get_users]
 
 # Pass options hash to configure
 Moodle.configure({host: 'http://dev.vle.getsmarter.co.za',
-                  token: '072556801bf07076fff6bff2a463b7c5',
-                  available_web_services: [:core_user_get_users]})
+                  token: '072556801bf07076fff6bff2a463b7c5'})
 ```
 
-Moodle requires users to expose [web service functions](https://docs.moodle.org/dev/Web_service_API_functions) in order for them to be used. As an additional precaution `available_web_services` configuration item has been created to allow developers to control what services are available. This stores an array of web service function names as symbols.
-
-Note if a function is not restricted in Moodle, but is in the configuration, it will not be available and visa versa.
+Moodle requires users to expose [web service functions](https://docs.moodle.org/dev/Web_service_API_functions) in order for them to be used. A MoodleError exception will be raised if a function with the incorrect name is called
 
 ### Calling a service
 
@@ -55,14 +50,13 @@ All web services are available by calling
 Moodle.function_name_here(my_parameters)
 ```
 
-New functions created in Moodle will automatically be available in the gem. Just make sure you add the name to the available_web_services in the configuration setup.
+New functions created in Moodle will automatically be available in the gem.
 
 ### Example
 
 ```
 Moodle.configure({host: 'http://dev.vle.getsmarter.co.za',
-                  token: '072556801bf07076fff6bff2a463b7c5',
-                  available_web_services: [:core_user_get_users]})
+                  token: '072556801bf07076fff6bff2a463b7c5'})
 
 params = { 'criteria[0][key]' => 'firstname', 'criteria[0][value]' => 'Jon' }
 Moodle.core_user_get_users(params)

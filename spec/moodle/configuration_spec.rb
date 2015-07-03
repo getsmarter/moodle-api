@@ -22,14 +22,9 @@ module Moodle
       expect(configuration.format).to eq(:xml)
     end
 
-    it '#available_web_services' do
-      expect(configuration.available_web_services).to eq([])
-    end
-
     it '#api_url' do
       expect(configuration.api_url).to eq('http://example.com/webservice/rest/server.php')
     end
-
 
     it '#reset' do
       configuration.reset

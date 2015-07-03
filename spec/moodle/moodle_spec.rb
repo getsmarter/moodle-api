@@ -5,33 +5,28 @@ RSpec.describe Moodle do
     Moodle.configure do|c|
       c.host = 'http://dev.vle.getsmarter.co.za'
       c.token = '072556801bf07076fff6bff2a463b7c5'
-      c.available_web_services = [:core_user_get_users]
     end
 
     expect(Moodle.configuration.host).to eq('http://dev.vle.getsmarter.co.za')
     expect(Moodle.configuration.token).to eq('072556801bf07076fff6bff2a463b7c5')
-    expect(Moodle.configuration.available_web_services).to eq([:core_user_get_users])
   end
 
   it 'allows resetting the configuration setup' do
     Moodle.configure do|c|
       c.host = 'http://dev.vle.getsmarter.co.za'
       c.token = '072556801bf07076fff6bff2a463b7c5'
-      c.available_web_services = [:core_user_get_users]
     end
 
     Moodle.reset_configuration
 
     expect(Moodle.configuration.host).to eq(nil)
     expect(Moodle.configuration.token).to eq(nil)
-    expect(Moodle.configuration.available_web_services).to eq([])
   end
 
   it 'forwards requests to the client' do
     Moodle.configure do|c|
       c.host = 'http://dev.vle.getsmarter.co.za'
       c.token = '072556801bf07076fff6bff2a463b7c5'
-      c.available_web_services = [:core_user_get_users]
     end
 
     params = { 'criteria[0][key]' => 'firstname', 'criteria[0][value]' => 'Jon' }
@@ -45,8 +40,7 @@ RSpec.describe Moodle do
 
   it 'allows setting configuration via parameter' do
     Moodle.configure({host: 'http://dev.vle.getsmarter.co.za',
-                      token: '072556801bf07076fff6bff2a463b7c5',
-                      available_web_services: [:core_user_get_users]})
+                      token: '072556801bf07076fff6bff2a463b7c5'})
 
     params = { 'criteria[0][key]' => 'firstname', 'criteria[0][value]' => 'Jon' }
 

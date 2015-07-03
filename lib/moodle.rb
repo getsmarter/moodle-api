@@ -14,15 +14,7 @@ module Moodle
     attr_accessor :configuration
 
     def method_missing method_name, *args, &block
-      if respond_to? method_name
         @client = Moodle::Client.new.make_request(method_name, args.first)
-      else
-        super
-      end
-    end
-
-    def respond_to? method_name, include_private = false
-      Moodle.configuration.available_web_services.include?(method_name.to_sym) || super
     end
 
     def configure options = {}
