@@ -71,11 +71,12 @@ Moodle.core_user_get_users(params)
 ## Documentation
 
 For documentation on all the web services check your moodle site at:
-- http://my_moodle_instance.com/admin/webservice/documentation.php
+- http://[my_moodle_instance].com/admin/webservice/documentation.php
 
 Useful links:
-- https://docs.moodle.org/20/en/Using_web_services#Creating_a_service
-- https://docs.moodle.org/dev/Web_service_API_functions
+- [Service creation guide](https://docs.moodle.org/20/en/Using_web_services#Creating_a_service)
+- [Web Service API function reference](https://docs.moodle.org/dev/Web_service_API_functions)
+- [Testing harness](https://testing.vle.getsmarter.co.za/admin/webservice/testclient.php)
 
 
 ## Development
