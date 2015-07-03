@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'moodle/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "moodle"
+  spec.name          = "Moodle"
   spec.version       = Moodle::VERSION
   spec.authors       = ["Ryan-Neal Mes"]
   spec.email         = ["ryan.mes@gmail.com"]
 
   spec.summary       = %q{Moodle web service API wrapper.}
-  spec.description   = %q{Wraps moodles API and exposes web services that have been made external.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.description   = %q{Wraps Moodle API and exposes web services that have been made external.}
+  spec.homepage      = "https://github.com/get-smarter/moodle"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
