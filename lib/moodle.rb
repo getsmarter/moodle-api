@@ -2,6 +2,8 @@ require 'moodle/version'
 require 'moodle/configuration'
 require 'moodle/client'
 require 'moodle/errors'
+require 'moodle/token_generator'
+require 'moodle/request'
 
 begin
   require 'pry'
@@ -11,23 +13,20 @@ end
 
 module Moodle
   class << self
-    attr_accessor :configuration
-
-    def method_missing method_name, *args, &block
-        @client = Moodle::Client.new.make_request(method_name, args.first)
+    def method_missing method, *args, &block
+      if client.respond_to?(method)
+        client.send(method, *args, &block)
+      else
+        client.make_request(method, args.first) # assume method name is moodle external service
+      end
     end
 
-    def configure options = {}
-      options.each { |key, value| configuration.instance_variable_set("@#{key}", value) }
-      yield(configuration) if block_given?
+    def respond_to?(method, include_all=false)
+      return client.respond_to?(method, include_all) || super
     end
 
-    def configuration
-      @configuration ||= Configuration.new
-    end
-
-    def reset_configuration
-      configuration.reset
+    def client
+      @client ||= Moodle::Client.new
     end
   end
 end

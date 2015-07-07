@@ -77,6 +77,8 @@ Useful links:
 
 A bundle install should get you going. Rspec, guard and vcr are leveraged for testing.
 
+Note: regenerating vcr cassettes, some data will change which will break the tests. They are pretty easy to compare and correct with a simple diff. The fields that change are timing fields such as last login date, etc.
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/moodle/fork )

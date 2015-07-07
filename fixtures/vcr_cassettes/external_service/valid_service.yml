@@ -38,8 +38,8 @@ http_interactions:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"users":[{"id":5329,"username":"ryan.mes@getsmarter.co.za","firstname":"Jon","lastname":"Snow","fullname":"Jon
-        Snow","email":"ryan.mes@getsmarter.co.za","department":"","firstaccess":1385623936,"lastaccess":1435753716,"description":"","descriptionformat":1,"city":"Cape
+      string: '{"users":[{"id":5329,"username":"ryan.mes@email.co.za","firstname":"Jon","lastname":"Snow","fullname":"Jon
+        Snow","email":"ryan.mes@email.co.za","department":"","firstaccess":1385623936,"lastaccess":1435753716,"description":"","descriptionformat":1,"city":"Cape
         Town","profileimageurlsmall":"http:\/\/dev.vle.getsmarter.co.za\/pluginfile.php\/46751\/user\/icon\/f2","profileimageurl":"http:\/\/dev.vle.getsmarter.co.za\/pluginfile.php\/46751\/user\/icon\/f1","customfields":[{"type":"text","value":"GetSmarter","name":"Company","shortname":"company"},{"type":"text","value":"www.getsmarter.co.za","name":"Company
         Website","shortname":"companywebsite"},{"type":"text","value":"Lead Developer","name":"Position","shortname":"position"},{"type":"textarea","value":"<p>I
         am an avid adventure racer!<\/p>","name":"More about me","shortname":"moreaboutme"},{"type":"menu","value":"Short

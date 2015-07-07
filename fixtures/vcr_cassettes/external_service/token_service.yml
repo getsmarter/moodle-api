@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://dev.vle.getsmarter.co.za/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=phoenix_integration
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Accept:
+      - json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 07 Jul 2015 08:26:38 GMT
+      Server:
+      - Apache/2.4.9 (Unix) PHP/5.5.14
+      X-Powered-By:
+      - PHP/5.5.14
+      Content-Length:
+      - '332'
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"error":"<p>Error: Database connection failed<\/p>\n<p>It is possible
+        that the database is overloaded or otherwise not running properly.<\/p>\n<p>The
+        site administrator should also check that the database details have been correctly
+        specified in config.php<\/p>","stacktrace":null,"debuginfo":null,"errorcode":"dbconnectionfailed"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://dev.vle.getsmarter.co.za/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=phoenix_integration
+  recorded_at: Tue, 07 Jul 2015 08:26:38 GMT
+recorded_with: VCR 2.9.3

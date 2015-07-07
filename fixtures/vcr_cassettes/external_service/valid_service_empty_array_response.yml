@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://dev.vle.getsmarter.co.za/webservice/rest/server.php?courseid=92&moodlewsrestformat=json&wsfunction=local_getsmarter_get_quiz_grades&wstoken=072556801bf07076fff6bff2a463b7c5
+    uri: http://dev.vle.getsmarter.co.za/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=local_getsmarter_get_quiz_grades&wstoken=072556801bf07076fff6bff2a463b7c5&courseid=92
     body:
       encoding: US-ASCII
       string: ''
@@ -41,6 +41,6 @@ http_interactions:
       string: "[]"
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://dev.vle.getsmarter.co.za/webservice/rest/server.php?courseid=92&moodlewsrestformat=json&wsfunction=local_getsmarter_get_quiz_grades&wstoken=072556801bf07076fff6bff2a463b7c5
+      effective_url: http://dev.vle.getsmarter.co.za/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=local_getsmarter_get_quiz_grades&wstoken=072556801bf07076fff6bff2a463b7c5&courseid=92
   recorded_at: Thu, 02 Jul 2015 07:10:48 GMT
 recorded_with: VCR 2.9.3

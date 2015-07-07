@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://dev.vle.getsmarter.co.za/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Accept:
+      - json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 03 Jul 2015 11:39:24 GMT
+      Server:
+      - Apache/2.4.9 (Unix) PHP/5.5.14
+      X-Powered-By:
+      - PHP/5.5.14
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      - post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Expires:
+      - Mon, 20 Aug 1969 09:23:00 GMT
+      Last-Modified:
+      - Fri, 03 Jul 2015 11:39:25 GMT
+      Accept-Ranges:
+      - none
+      Content-Length:
+      - '249'
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"error":"No permission to create web service token for the service
+        .","stacktrace":"* line 187 of \/login\/token.php: moodle_exception thrown\n","debuginfo":"\nError
+        code: cannotcreatetoken","reproductionlink":"http:\/\/dev.vle.getsmarter.co.za\/"}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://dev.vle.getsmarter.co.za/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=
+  recorded_at: Fri, 03 Jul 2015 11:39:25 GMT
+recorded_with: VCR 2.9.3
