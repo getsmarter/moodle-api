@@ -52,8 +52,15 @@ module Moodle
       expect(configuration.username).to eq(nil)
       expect(configuration.password).to eq(nil)
       expect(configuration.service).to eq(nil)
-      expect(configuration.token).to eq(nil)
       expect(configuration.format).to eq(:json)
+    end
+
+    it 'raises ArgumentError if username and password are not present and the token is requested' do
+      configuration.reset
+
+      expect {
+        configuration.token
+      }.to raise_error(ArgumentError, 'Username and password are required to generate a token')
     end
 
     it 'allows configuration via options' do
@@ -78,6 +85,12 @@ module Moodle
       end
 
       expect(configuration.host).to eq('host')
+      expect(configuration.token).to eq('token')
+    end
+
+    it 'retrieves a token if one was not set' do
+      configuration.token = nil
+      configuration.token_service = double(:service, call: 'token')
       expect(configuration.token).to eq('token')
     end
   end

@@ -13,9 +13,10 @@ module Moodle
     private
 
     def generate_token
-      Request.new.post(configuration.token_api_url,
-                       params: request_params,
-                       headers: { 'Accept' => "json" })
+      response = Request.new.post(configuration.token_api_url,
+                                  params: request_params,
+                                  headers: { 'Accept' => "json" })
+      response['token']
     end
 
     def request_params

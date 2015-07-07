@@ -1,5 +1,6 @@
 module Moodle
   class Configuration
+    attr_writer :token_service
     attr_accessor :host,
       :username,
       :password,
@@ -39,6 +40,19 @@ module Moodle
     def configure options = {}, &block
       options.each { |key, value| instance_variable_set("@#{key}", value) }
       block.call(self) if block_given?
+    end
+
+    def token
+      raise ArgumentError, 'Username and password are required to generate a token' if raise_token_exception?
+      @token ||= token_service.call # if not set use token service
+    end
+
+    def raise_token_exception?
+      @token.nil? && (username.nil? || password.nil?)
+    end
+
+    def token_service
+      @token_service ||= TokenGenerator.new(self)
     end
   end
 end

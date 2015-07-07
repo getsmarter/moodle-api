@@ -11,17 +11,17 @@ RSpec.describe Moodle do
     expect(Moodle.configuration.token).to eq('072556801bf07076fff6bff2a463b7c5')
   end
 
-  it 'allows resetting the configuration setup' do
-    Moodle.configure do|c|
-      c.host = 'http://dev.vle.getsmarter.co.za'
-      c.token = '072556801bf07076fff6bff2a463b7c5'
-    end
+  # it 'allows resetting the configuration setup' do
+  #   Moodle.configure do|c|
+  #     c.host = 'http://dev.vle.getsmarter.co.za'
+  #     c.token = '072556801bf07076fff6bff2a463b7c5'
+  #   end
 
-    Moodle.reset_configuration
+  #   Moodle.reset_configuration
 
-    expect(Moodle.configuration.host).to eq(nil)
-    expect(Moodle.configuration.token).to eq(nil)
-  end
+  #   expect(Moodle.configuration.host).to eq(nil)
+  #   expect(Moodle.configuration.token).to eq(nil)
+  # end
 
   it 'forwards requests to the client' do
     Moodle.configure do|c|

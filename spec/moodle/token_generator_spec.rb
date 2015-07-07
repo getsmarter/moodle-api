@@ -16,7 +16,7 @@ module Moodle
     it 'generates a token' do
       VCR.use_cassette('token_service/token_service') do
         token = TokenGenerator.new(configuration).call
-        expect(token).to eq({'token'=>'072556801bf07076fff6bff2a463b7c5'})
+        expect(token).to eq('072556801bf07076fff6bff2a463b7c5')
       end
     end
 

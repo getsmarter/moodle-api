@@ -2,6 +2,7 @@ require 'moodle/request'
 module Moodle
   class Client
     attr_reader :web_service_name, :filter_params
+    attr_writer :token_service
 
     def initialize options = {}
       configure(options)
@@ -19,7 +20,7 @@ module Moodle
         params: filter_params.merge!({ moodlewsrestformat: configuration.format,
                                        wsfunction: web_service_name,
                                        wstoken: configuration.token }),
-        headers: { 'Accept' => "json" }
+        headers: { 'Accept' => 'json' }
       }
     end
 
