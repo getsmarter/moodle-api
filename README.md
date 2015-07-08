@@ -94,7 +94,7 @@ Moodle::TokenGenerator.new(configuration).call
 ```
 
 ## Documentation
-- [General](http://[my_moodle_instance].com/admin/webservice/documentation.php)
+- Local documentation - http://[my_moodle_instance].com/admin/webservice/documentation.php
 - [Service creation guide](https://docs.moodle.org/20/en/Using_web_services#Creating_a_service)
 - [Token creation](https://docs.moodle.org/24/en/Using_web_services#Create_a_token)
 - [Web Service API function reference](https://docs.moodle.org/dev/Web_service_API_functions)
