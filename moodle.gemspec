@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'moodle/api/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "Moodle"
+  spec.name          = "moodle-api"
   spec.version       = Moodle::Api::VERSION
   spec.authors       = ["Ryan-Neal Mes"]
   spec.email         = ["ryan.mes@gmail.com"]
