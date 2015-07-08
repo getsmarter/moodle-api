@@ -43,12 +43,7 @@ module Moodle
     end
 
     def token
-      raise ArgumentError, 'Username and password are required to generate a token' if raise_token_exception?
       @token ||= token_service.call # if not set use token service
-    end
-
-    def raise_token_exception?
-      @token.nil? && (username.nil? || password.nil?)
     end
 
     def token_service

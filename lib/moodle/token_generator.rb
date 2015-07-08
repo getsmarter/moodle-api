@@ -7,6 +7,7 @@ module Moodle
     end
 
     def call
+      raise ArgumentError, 'Username and password are required to generate a token' if raise_token_exception?
       generate_token
     end
 
@@ -17,6 +18,10 @@ module Moodle
                                   params: request_params,
                                   headers: { 'Accept' => "json" })
       response['token']
+    end
+
+    def raise_token_exception?
+      configuration.username.nil? || configuration.password.nil?
     end
 
     def request_params

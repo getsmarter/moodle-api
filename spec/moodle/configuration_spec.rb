@@ -89,9 +89,11 @@ module Moodle
     end
 
     it 'retrieves a token if one was not set' do
+      token_service = double(:service, call: 'token')
+      configuration.token_service = token_service
       configuration.token = nil
-      configuration.token_service = double(:service, call: 'token')
       expect(configuration.token).to eq('token')
+      expect(token_service).to have_received(:call)
     end
   end
 end

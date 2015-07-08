@@ -21,7 +21,8 @@ module Moodle
     end
 
     it 'raises a moodle error when an invalid service is used' do
-        configuration.service = 'invalidservice'
+      configuration.service = 'invalidservice'
+
       VCR.use_cassette('token_service/invalid_service_token_service') do
         expect {
           TokenGenerator.new(configuration).call
@@ -29,7 +30,7 @@ module Moodle
       end
     end
 
-     it 'raises a moodle error when an invalid user is used' do
+    it 'raises a moodle error when an invalid user is used' do
       configuration.username = 'invalidusername'
 
       VCR.use_cassette('token_service/invalid_username_token_service') do
@@ -47,6 +48,22 @@ module Moodle
           TokenGenerator.new(configuration).call
         }.to raise_error(Moodle::MoodleError, 'The username was not found in the database')
       end
+    end
+
+    it 'raises an argument error when username is not passed in' do
+      configuration.username = nil
+
+      expect {
+        TokenGenerator.new(configuration).call
+      }.to raise_error(ArgumentError, 'Username and password are required to generate a token')
+    end
+
+    it 'raises an argument error when password is not passed in' do
+      configuration.password = nil
+
+      expect {
+        TokenGenerator.new(configuration).call
+      }.to raise_error(ArgumentError, 'Username and password are required to generate a token')
     end
   end
 end
