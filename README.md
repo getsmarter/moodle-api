@@ -24,7 +24,7 @@ Or install it yourself as:
 
 Different ways to configure gem.
 
-```
+```ruby
 # Pass block to configure
  Moodle.configure do|c|
   c.host = 'http://dev.vle.getsmarter.co.za'
@@ -38,6 +38,14 @@ Moodle.configuration.token = '072556801bf07076fff6bff2a463b7c5'
 # Pass options hash to configure
 Moodle.configure({host: 'http://dev.vle.getsmarter.co.za',
                   token: '072556801bf07076fff6bff2a463b7c5'})
+
+```
+The client can also be instantiated and used.
+
+```ruby
+client = Moodle:Client.new({host: 'http://dev.vle.getsmarter.co.za',
+                            token: '072556801bf07076fff6bff2a463b7c5'})
+client.make_request(:function_name_here, my_params)
 ```
 
 Moodle requires users to expose [web service functions](https://docs.moodle.org/dev/Web_service_API_functions) in order for them to be used. A MoodleError exception will be raised if a function with the incorrect name is called
@@ -46,7 +54,7 @@ Moodle requires users to expose [web service functions](https://docs.moodle.org/
 
 All web services are available by calling
 
-```
+```ruby
 Moodle.function_name_here(my_parameters)
 ```
 
@@ -54,7 +62,7 @@ New functions created in Moodle will automatically be available in the gem.
 
 ### Example
 
-```
+```ruby
 Moodle.configure({host: 'http://dev.vle.getsmarter.co.za',
                   token: '072556801bf07076fff6bff2a463b7c5'})
 
@@ -62,22 +70,40 @@ params = { 'criteria[0][key]' => 'firstname', 'criteria[0][value]' => 'Jon' }
 Moodle.core_user_get_users(params)
 ```
 
+### Authentication
+Moodle uses token authentication, but sometimes you might not have a token. Users are able to generate tokens automatically when calling services using basic authentication.
+```ruby
+Moodle.configure({host: 'http://dev.vle.getsmarter.co.za',
+                  service: 'my_external_service', # ensure you include the shortname of the external service
+                  username: 'jonsnow',
+                  password: 'defendthewall'})
+params = { 'criteria[0][key]' => 'firstname', 'criteria[0][value]' => 'Jon' }
+Moodle.core_user_get_users(params)
+```
+The gem will handle generating the token automatically and making the call to `core_user_get_users` with the token. If you want you can also just generate a token using
+```ruby
+configuration = Moodle::Configuration.new
+configuration.host = 'http://example.com'
+configuration.username = 'jonsnow'
+configuration.password = 'batman'
+configuration.service = 'service'
+configuration
+
+# Note you could pass in a struct with these attributes and it should work the same
+Moodle::TokenGenerator.new(configuration).call
+```
+
 ## Documentation
-
-For documentation on all the web services check your moodle site at:
-- http://[my_moodle_instance].com/admin/webservice/documentation.php
-
-Useful links:
+- [General](http://[my_moodle_instance].com/admin/webservice/documentation.php)
 - [Service creation guide](https://docs.moodle.org/20/en/Using_web_services#Creating_a_service)
+- [Token creation](https://docs.moodle.org/24/en/Using_web_services#Create_a_token)
 - [Web Service API function reference](https://docs.moodle.org/dev/Web_service_API_functions)
 - [Testing harness](https://testing.vle.getsmarter.co.za/admin/webservice/testclient.php)
 
-
 ## Development
-
 A bundle install should get you going. Rspec, guard and vcr are leveraged for testing.
 
-Note: regenerating vcr cassettes, some data will change which will break the tests. They are pretty easy to compare and correct with a simple diff. The fields that change are timing fields such as last login date, etc.
+Note: regenerating vcr cassettes, some data will change which will break the tests. They are pretty easy to compare and correct with a simple diff. The fields that change are timing fields such as last login date, etc. which are specific to the users system. A todo has been added to make the cassettes easily rerunnable.
 
 ## Contributing
 
@@ -91,5 +117,5 @@ I am always keen to learn so please feel free to create an issue with code revie
 
 ## TODOS
 
-- Add functionality to make XML-RPC requests
-- Add the ability to generate tokens from username and password
+- Add additional protocals
+- Make cassettes easily rerunnable - will require a parser for the response to remove dynamic data or a funky regex in the specs.
