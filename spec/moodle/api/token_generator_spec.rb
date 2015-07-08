@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Moodle
+module Moodle::Api
   RSpec.describe TokenGenerator do
     let(:configuration) do
       configuration = Configuration.new
@@ -26,7 +26,7 @@ module Moodle
       VCR.use_cassette('token_service/invalid_service_token_service') do
         expect {
           TokenGenerator.new(configuration).call
-        }.to raise_error(Moodle::MoodleError, 'Web service is not available (it doesn\'t exist or might be disabled)')
+        }.to raise_error(Moodle::Api::MoodleError, 'Web service is not available (it doesn\'t exist or might be disabled)')
       end
     end
 
@@ -36,7 +36,7 @@ module Moodle
       VCR.use_cassette('token_service/invalid_username_token_service') do
         expect {
           TokenGenerator.new(configuration).call
-        }.to raise_error(Moodle::MoodleError, 'The username was not found in the database')
+        }.to raise_error(Moodle::Api::MoodleError, 'The username was not found in the database')
       end
     end
 
@@ -46,7 +46,7 @@ module Moodle
 
         expect {
           TokenGenerator.new(configuration).call
-        }.to raise_error(Moodle::MoodleError, 'The username was not found in the database')
+        }.to raise_error(Moodle::Api::MoodleError, 'The username was not found in the database')
       end
     end
 
