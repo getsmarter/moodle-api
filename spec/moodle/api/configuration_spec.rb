@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Moodle
+module Moodle::Api
   RSpec.describe Configuration do
     let(:configuration) do
       configuration = Configuration.new

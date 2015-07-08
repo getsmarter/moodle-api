@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'moodle/version'
+require 'moodle/api/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "Moodle"
-  spec.version       = Moodle::VERSION
+  spec.version       = Moodle::Api::VERSION
   spec.authors       = ["Ryan-Neal Mes"]
   spec.email         = ["ryan.mes@gmail.com"]
 
