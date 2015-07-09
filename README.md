@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/repos/559ea924e30ba001ad00a507/badges/bf95c036334b007100d3/gpa.svg)](https://codeclimate.com/repos/559ea924e30ba001ad00a507/feed)
+
 # Moodle
 
 A ruby wrapper for the Moodle REST API.
