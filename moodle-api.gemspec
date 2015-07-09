@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Moodle web service API wrapper.}
   spec.description   = %q{Wraps Moodle API and exposes web services that have been made external.}
-  spec.homepage      = "https://github.com/get-smarter/moodle"
+  spec.homepage      = "https://github.com/get-smarter/moodle-api"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
