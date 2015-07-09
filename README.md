@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/moodle-api.svg)](http://badge.fury.io/rb/moodle-api)
 [![Code Climate](https://codeclimate.com/repos/559ea924e30ba001ad00a507/badges/bf95c036334b007100d3/gpa.svg)](https://codeclimate.com/repos/559ea924e30ba001ad00a507/feed)
 [![Build Status](https://travis-ci.org/get-smarter/moodle-api.svg?branch=master)](https://travis-ci.org/get-smarter/moodle-api)
 [![Test Coverage](https://codeclimate.com/repos/559ea924e30ba001ad00a507/badges/bf95c036334b007100d3/coverage.svg)](https://codeclimate.com/repos/559ea924e30ba001ad00a507/coverage)
