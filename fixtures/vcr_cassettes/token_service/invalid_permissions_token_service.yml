@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://dev.vle.getsmarter.co.za/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=
+    uri: http://my_moodle_instance.com/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=
     body:
       encoding: US-ASCII
       string: ''
@@ -41,9 +41,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":"No permission to create web service token for the service
         .","stacktrace":"* line 187 of \/login\/token.php: moodle_exception thrown\n","debuginfo":"\nError
-        code: cannotcreatetoken","reproductionlink":"http:\/\/dev.vle.getsmarter.co.za\/"}'
+        code: cannotcreatetoken","reproductionlink":"http:\/\/my_moodle_instance.com\/"}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://dev.vle.getsmarter.co.za/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=
+      effective_url: http://my_moodle_instance.com/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=
   recorded_at: Fri, 03 Jul 2015 11:39:25 GMT
 recorded_with: VCR 2.9.3

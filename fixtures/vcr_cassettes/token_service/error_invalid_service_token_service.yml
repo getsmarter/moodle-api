@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://dev.vle.getsmarter.co.za/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=invalidservice
+    uri: http://my_moodle_instance.com/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=invalidservice
     body:
       encoding: US-ASCII
       string: ''
@@ -34,6 +34,6 @@ http_interactions:
         specified in config.php<\/p>","stacktrace":null,"debuginfo":null,"errorcode":"dbconnectionfailed"}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://dev.vle.getsmarter.co.za/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=invalidservice
+      effective_url: http://my_moodle_instance.com/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=invalidservice
   recorded_at: Tue, 07 Jul 2015 08:35:14 GMT
 recorded_with: VCR 2.9.3
