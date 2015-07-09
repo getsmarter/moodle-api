@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://dev.vle.getsmarter.co.za/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=phoenix_integration
+    uri: http://my_moodle_instance.com/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=phoenix_integration
     body:
       encoding: US-ASCII
       string: ''
@@ -42,6 +42,6 @@ http_interactions:
       string: '{"token":"072556801bf07076fff6bff2a463b7c5"}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://dev.vle.getsmarter.co.za/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=phoenix_integration
+      effective_url: http://my_moodle_instance.com/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=phoenix_integration
   recorded_at: Fri, 03 Jul 2015 11:41:10 GMT
 recorded_with: VCR 2.9.3

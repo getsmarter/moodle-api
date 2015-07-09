@@ -5,7 +5,7 @@ module Moodle::Api
     let(:configuration) do
       configuration = Configuration.new
       configuration.configure do |c|
-        c.host = 'http://dev.vle.getsmarter.co.za'
+        c.host = 'http://my_moodle_instance.com'
         c.username = 'ryan.mes@email.co.za'
         c.password = 'mypassword'
         c.service = 'phoenix_integration'
