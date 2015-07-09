@@ -122,3 +122,7 @@ I am always keen to learn so please feel free to create an issue with code revie
 - Setup travis
 - Setup codeclimate
 - Setup codecoverage
+
+## Warning
+
+This gem is still under heavy development.
