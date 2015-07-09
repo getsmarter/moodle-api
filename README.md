@@ -122,11 +122,8 @@ I am always keen to learn so please feel free to create an issue with code revie
 
 ## TODOS
 
-- Add additional protocals
+- Add additional protocols
 - Make cassettes easily rerunnable - will require a parser for the response to remove dynamic data or a funky regex in the specs.
-- Setup travis
-- Setup codeclimate
-- Setup codecoverage
 
 ## Warning
 
