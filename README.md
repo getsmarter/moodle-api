@@ -34,23 +34,21 @@ Different ways to configure gem.
 # Pass block to configure
  Moodle::Api.configure do|c|
   c.host = 'http://my_moodle_instance.com'
-  c.token = '072556801bf07076fff6bff2a463b7c5'
+  c.token = 'mytoken'
 end
 
 # Set configuration values individually
 Moodle::Api.configuration.host = 'http://my_moodle_instance.com'
-Moodle::Api.configuration.token = '072556801bf07076fff6bff2a463b7c5'
+Moodle::Api.configuration.token = 'mytoken'
 
 # Pass options hash to configure
 Moodle::Api.configure({host: 'http://my_moodle_instance.com',
-                  token: '072556801bf07076fff6bff2a463b7c5'})
+                  token: 'mytoken'})
 
-```
-The client can also be instantiated and used.
-
-```ruby
+# The client can also be instantiated and used.
 client = Moodle:Client.new({host: 'http://my_moodle_instance.com',
-                            token: '072556801bf07076fff6bff2a463b7c5'})
+                            token: 'mytoken'})
+
 client.make_request(:function_name_here, my_params)
 ```
 
@@ -70,9 +68,10 @@ New functions created in Moodle will automatically be available in the gem.
 
 ```ruby
 Moodle::Api.configure({host: 'http://my_moodle_instance.com',
-                  token: '072556801bf07076fff6bff2a463b7c5'})
+                  token: 'mytoken'})
 
 params = { 'criteria[0][key]' => 'firstname', 'criteria[0][value]' => 'Jon' }
+
 Moodle::Api.core_user_get_users(params)
 ```
 
@@ -83,7 +82,9 @@ Moodle::Api.configure({host: 'http://my_moodle_instance.com',
                   service: 'my_external_service', # ensure you include the shortname of the external service
                   username: 'jonsnow',
                   password: 'defendthewall'})
+                  
 params = { 'criteria[0][key]' => 'firstname', 'criteria[0][value]' => 'Jon' }
+
 Moodle::Api.core_user_get_users(params)
 ```
 The gem will handle generating the token automatically and making the call to `core_user_get_users` with the token. If you want you can also just generate a token using
