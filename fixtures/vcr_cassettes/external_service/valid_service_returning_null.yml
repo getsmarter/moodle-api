@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://my_moodle_instance.com/webservice/rest/server.php?enrolments%5B0%5D%5Buserid%5D=11157&enrolments%5B0%5D%5Broleid%5D=5&enrolments%5B0%5D%5Bcourseid%5D=282&moodlewsrestformat=json&wsfunction=enrol_manual_enrol_users&wstoken=mytoken
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Accept:
+      - json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 14 Jul 2015 12:07:53 GMT
+      Server:
+      - Apache
+      Cache-Control:
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Accept-Ranges:
+      - none
+      Access-Control-Allow-Origin:
+      - "*"
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '4'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: 'null'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://my_moodle_instance.com/webservice/rest/server.php?enrolments%5B0%5D%5Buserid%5D=11157&enrolments%5B0%5D%5Broleid%5D=5&enrolments%5B0%5D%5Bcourseid%5D=282&moodlewsrestformat=json&wsfunction=enrol_manual_enrol_users&wstoken=mytoken
+  recorded_at: Tue, 14 Jul 2015 12:07:55 GMT
+recorded_with: VCR 2.9.3

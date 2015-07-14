@@ -55,6 +55,24 @@ module Moodle::Api
           expect(response).to match_array([])
         end
       end
+
+      # Moodle API returns null in some cases for successful calls
+       it 'returns null if the response body is null' do
+        params =  {
+          'enrolments[0][userid]' => '11157',
+          'enrolments[0][roleid]' => '5',
+          'enrolments[0][courseid]' => '282',
+          'moodlewsrestformat' => 'json',
+          'wsfunction' => 'enrol_manual_enrol_users',
+          'wstoken' => 'mytoken'
+        }
+
+        VCR.use_cassette('external_service/valid_service_returning_null') do
+          response = Moodle::Api::Request.new.post(path, params: params, headers: headers)
+
+          expect(response).to eq('null')
+        end
+      end
     end
   end
 end
