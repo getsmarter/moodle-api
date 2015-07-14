@@ -57,7 +57,7 @@ module Moodle::Api
       end
 
       # Moodle API returns null in some cases for successful calls
-       it 'returns true if the response body is null' do
+       it 'returns null if the response body is null' do
         params =  {
           'enrolments[0][userid]' => '11157',
           'enrolments[0][roleid]' => '5',
