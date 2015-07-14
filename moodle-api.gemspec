@@ -34,6 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'vcr'
   spec.add_development_dependency 'codeclimate-test-reporter'
+  spec.add_development_dependency 'rubocop'
 
   spec.add_dependency 'typhoeus'
 end
