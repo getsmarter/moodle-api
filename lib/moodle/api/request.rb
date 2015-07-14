@@ -37,8 +37,13 @@ module Moodle
         response_body.is_a?(Hash) && response_body['error']
       end
 
+      # API calls that return null are considered successful
       def response_body
-        JSON.parse(response.body)
+        begin
+          JSON.parse(response.body)
+        rescue JSON::ParserError => e
+          response.body
+        end
       end
     end
   end
