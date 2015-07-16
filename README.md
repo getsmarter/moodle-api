@@ -114,7 +114,7 @@ Note: regenerating vcr cassettes, some data will change which will break the tes
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/moodle/fork )
+1. Fork it ( https://github.com/[my-github-username]/moodle-api/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -126,6 +126,7 @@ I am always keen to learn so please feel free to create an issue with code revie
 
 - Add additional protocols
 - Make cassettes easily rerunnable - will require a parser for the response to remove dynamic data or a funky regex in the specs.
+- Moodle web services require you to know how the Moodle API expects params. They are pretty messy. It would be nice to leverage hashes and arrays and then parse them to into what moodle expects.
 
 ## Warning
 
