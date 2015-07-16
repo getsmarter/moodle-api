@@ -126,6 +126,7 @@ I am always keen to learn so please feel free to create an issue with code revie
 
 - Add additional protocols
 - Make cassettes easily rerunnable - will require a parser for the response to remove dynamic data or a funky regex in the specs.
+- Moodle web services require you to know how the Moodle API expects params. They are pretty messy. It would be nice to leverage hashes and arrays and then parse them to into what moodle expects.
 
 ## Warning
 
