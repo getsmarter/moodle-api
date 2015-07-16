@@ -1,13 +1,15 @@
 module Moodle
   module Api
+    # Handles all configuration settings required
+    # to interaction with a Moodle API
     class Configuration
       attr_writer :token_service
       attr_accessor :host,
-        :username,
-        :password,
-        :service,
-        :token,
-        :format
+                    :username,
+                    :password,
+                    :service,
+                    :token,
+                    :format
 
       DEFAULT_FORMAT = :json
 
@@ -15,7 +17,7 @@ module Moodle
 
       DEFAULT_TOKEN_API_URL = '/login/token.php'
 
-      def initialize options = {}
+      def initialize(options = {})
         @format = DEFAULT_FORMAT
 
         configure(options)
@@ -38,7 +40,7 @@ module Moodle
         "#{host}#{DEFAULT_TOKEN_API_URL}"
       end
 
-      def configure options = {}, &block
+      def configure(options = {}, &block)
         options.each { |key, value| instance_variable_set("@#{key}", value) }
         block.call(self) if block_given?
       end

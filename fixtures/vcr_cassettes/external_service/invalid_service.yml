@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://my_moodle_instance.com/webservice/rest/server.php?criteria%5B0%5D%5Bkey%5D=firstname&criteria%5B0%5D%5Bvalue%5D=Jon&moodlewsrestformat=json&wsfunction=core_user_get_users_invalid&wstoken=072556801bf07076fff6bff2a463b7c5
+    uri: http://my_moodle_instance.com/webservice/rest/server.php?criteria%5B0%5D%5Bkey%5D=firstname&criteria%5B0%5D%5Bvalue%5D=Jon&moodlewsrestformat=json&wsfunction=core_user_get_users_invalid&wstoken=mytoken
     body:
       encoding: US-ASCII
       string: ''
@@ -43,6 +43,6 @@ http_interactions:
         * FROM {external_functions} WHERE name = ?\n[array (\n  0 => ''core_user_get_users_invalid'',\n)]"}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: http://my_moodle_instance.com/webservice/rest/server.php?criteria%5B0%5D%5Bkey%5D=firstname&criteria%5B0%5D%5Bvalue%5D=Jon&moodlewsrestformat=json&wsfunction=core_user_get_users_invalid&wstoken=072556801bf07076fff6bff2a463b7c5
+      effective_url: http://my_moodle_instance.com/webservice/rest/server.php?criteria%5B0%5D%5Bkey%5D=firstname&criteria%5B0%5D%5Bvalue%5D=Jon&moodlewsrestformat=json&wsfunction=core_user_get_users_invalid&wstoken=mytoken
   recorded_at: Wed, 01 Jul 2015 12:33:57 GMT
 recorded_with: VCR 2.9.3

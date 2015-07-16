@@ -1,1 +1,9 @@
 require: rubocop-rspec
+
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'Guardfile'
