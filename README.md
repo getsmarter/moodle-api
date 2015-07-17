@@ -116,8 +116,9 @@ Note: regenerating vcr cassettes, some data will change which will break the tes
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+6. Ensure your stuff is rubocop'd
 
-I am always keen to learn so please feel free to create an issue with code reviews, suggestions and possible refactorings.
+I am always keen to learn so please feel free to create an issue with code reviews, suggestions and possible refactorings. 
 
 ## TODOS
 
