@@ -3,10 +3,14 @@ require 'json'
 
 module Moodle
   module Api
+    # Handles making the request to the Moodle API and interpreting the
+    # results. The Moodle API is not consistent in the way it returns
+    # responses so the type of response is determined, successful responses
+    # are returned, failures are parsed and raised in a generic fashion.
     class Request
       attr_reader :response
 
-      def post path,  options = {}
+      def post(path,  options = {})
         @response = Typhoeus.post(path, options)
         resolve_response if response.success?
       end
@@ -19,9 +23,9 @@ module Moodle
 
       def request_raised_exception?
         if external_services_api_exception?
-          raise MoodleError, response_body["message"]
+          fail MoodleError, response_body['message']
         elsif token_service_api_exception?
-          raise MoodleError, response_body["error"]
+          fail MoodleError, response_body['error']
         end
       end
 
@@ -39,11 +43,9 @@ module Moodle
 
       # API calls that return null are considered successful
       def response_body
-        begin
-          JSON.parse(response.body)
-        rescue JSON::ParserError => e
-          response.body
-        end
+        JSON.parse(response.body)
+      rescue JSON::ParserError
+        response.body
       end
     end
   end

@@ -39,7 +39,7 @@ http_interactions:
       - application/json; charset=utf-8
     body:
       encoding: UTF-8
-      string: '{"token":"072556801bf07076fff6bff2a463b7c5"}'
+      string: '{"token":"mytoken"}'
     http_version: '1.1'
     adapter_metadata:
       effective_url: http://my_moodle_instance.com/login/token.php?username=ryan.mes%40email.co.za&password=mypassword&service=phoenix_integration
