@@ -79,7 +79,7 @@ Moodle::Api.configure({host: 'http://my_moodle_instance.com',
                        service: 'my_external_service', # ensure you include the shortname of the external service
                        username: 'jonsnow',
                        password: 'defendthewall'})
-                  
+
 params = { 'criteria[0][key]' => 'firstname', 'criteria[0][value]' => 'Jon' }
 
 Moodle::Api.core_user_get_users(params)
@@ -118,7 +118,7 @@ Note: regenerating vcr cassettes, some data will change which will break the tes
 5. Create a new Pull Request
 6. Ensure your stuff is rubocop'd
 
-I am always keen to learn so please feel free to create an issue with code reviews, suggestions and possible refactorings. 
+I am always keen to learn so please feel free to create an issue with code reviews, suggestions and possible refactorings.
 
 ## TODOS
 
@@ -126,6 +126,3 @@ I am always keen to learn so please feel free to create an issue with code revie
 - Make cassettes easily rerunnable - will require a parser for the response to remove dynamic data or a funky regex in the specs.
 - Moodle web services require you to know how the Moodle API expects params. They are pretty messy. It would be nice to leverage hashes and arrays and then parse them to into what moodle expects.
 
-## Warning
-
-This gem is still under heavy development.
