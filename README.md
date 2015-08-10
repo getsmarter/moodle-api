@@ -6,7 +6,7 @@
 
 # Moodle API
 
-A ruby wrapper for the Moodle REST API.
+A ruby wrapper for the Moodle REST API. 
 
 ## Installation
 
@@ -119,6 +119,10 @@ Note: regenerating vcr cassettes, some data will change which will break the tes
 6. Ensure your stuff is rubocop'd
 
 I am always keen to learn so please feel free to create an issue with code reviews, suggestions and possible refactorings.
+
+## Compatibility
+
+This gem has been use in production against Moodle 2.8. As long as the version you are using has Moodle web services you should be good to go. We are using this gem in production so, future upgrades will be done as future releases come out.
 
 ## TODOS
 
