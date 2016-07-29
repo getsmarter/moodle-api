@@ -5,12 +5,6 @@ require 'moodle/api/errors'
 require 'moodle/api/token_generator'
 require 'moodle/api/request'
 
-begin
-  require 'pry'
-rescue
-  LoadError
-end
-
 module Moodle
   # Handles instantiating the client and determining how
   # method calls should be delegated to the client
