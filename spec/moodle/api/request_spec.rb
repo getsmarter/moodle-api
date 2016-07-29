@@ -75,7 +75,7 @@ module Moodle
 
           VCR.use_cassette('external_service/valid_service_returning_null') do
             response = Request.new.post(path, params: params, headers: headers)
-            expect(response).to eq('null')
+            expect(response).to eq(nil)
           end
         end
       end
