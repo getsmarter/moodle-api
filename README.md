@@ -7,7 +7,7 @@
 
 # Moodle API
 
-A ruby wrapper for the Moodle REST API. 
+A ruby wrapper for the Moodle's web service functions. 
 
 ## Installation
 
@@ -123,7 +123,7 @@ I am always keen to learn so please feel free to create an issue with code revie
 
 ## Compatibility
 
-This gem has been used in production against Moodle 2.8, 2.9 and 3.1. As long as the version you are using has Moodle web services you should be good to go. We are using this gem in production so, future upgrades will be done as releases come out.
+This gem has been used in production against Moodle 2.8 - 3.3. As long as the version you are using has Moodle web services you should be good to go. We are using this gem in production so, future upgrades will be done as releases come out. We will also notify users if we stop maintaining this repo.
 
 ## TODOS
 
