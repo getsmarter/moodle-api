@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'vcr'
-  spec.add_development_dependency 'codeclimate-test-reporter'
+  spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'rubocop-rspec'
 
