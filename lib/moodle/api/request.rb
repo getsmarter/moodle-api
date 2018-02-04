@@ -23,7 +23,8 @@ module Moodle
 
       def request_raised_exception?
         if external_services_api_exception?
-          fail MoodleError, response_body['message']
+          message = response_body.each { |key,value| "#{key}: #{value}" }
+          fail MoodleError, message
         elsif token_service_api_exception?
           fail MoodleError, response_body['error']
         end
