@@ -5,7 +5,7 @@
 
 # Moodle API
 
-A ruby wrapper for the Moodle's web service functions. 
+A ruby wrapper for Moodle's web service functions. 
 
 ## Installation
 
