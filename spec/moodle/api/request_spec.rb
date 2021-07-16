@@ -28,7 +28,7 @@ module Moodle
           # add params that are required
           params['wsfunction'] = 'core_user_get_users_invalid'
 
-          e = 'Can not find data record in database table external_functions.'
+          e = /unknown_function - Can not find data record in database table external_functions. - SELECT * /
 
           VCR.use_cassette('external_service/invalid_service') do
             expect do
@@ -38,7 +38,7 @@ module Moodle
         end
 
         it 'raises moodle error if trying to access method that has not been made external' do
-          e = 'Access control exception'
+          e = /unknown_function - Access control exception - Access to the function core_user_get_users()/
 
           VCR.use_cassette('external_service/valid_service_not_external') do
             expect do
