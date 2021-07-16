@@ -51,7 +51,7 @@ module Moodle
         end
 
         it 'raises moodle error if incorrect method name is used' do
-          e = 'Can not find data record in database table external_functions.'
+          e = /core_user_get_users_invalid - Can not find data record in database table external_functions. - SELECT * /
 
           VCR.use_cassette('external_service/invalid_service') do
             expect do
@@ -61,10 +61,12 @@ module Moodle
         end
 
         it 'raises moodle error if trying to access method that has not been made external' do
+          e = /core_user_get_users - Access control exception - Access to the function core_user_get_users()/
+
           VCR.use_cassette('external_service/valid_service_not_external') do
             expect do
               client.make_request(:core_user_get_users, params)
-            end.to raise_error(MoodleError, 'Access control exception')
+            end.to raise_error(MoodleError, e)
           end
         end
       end
@@ -79,7 +81,7 @@ module Moodle
           VCR.use_cassette('external_service/valid_service_with_invalid_token') do
             expect do
               client.make_request(:core_user_get_users, params)
-            end.to raise_error(MoodleError, 'Invalid token - token not found')
+            end.to raise_error(MoodleError, 'core_user_get_users - Invalid token - token not found')
           end
         end
       end
