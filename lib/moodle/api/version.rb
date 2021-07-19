@@ -3,6 +3,6 @@ module Moodle
   # Semantic versioning is used
   # http://guides.rubygems.org/patterns/#semantic-versioning
   module Api
-    VERSION = '1.6'.freeze
+    VERSION = '1.7'.freeze
   end
 end
