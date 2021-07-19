@@ -9,8 +9,10 @@ module Moodle
     # are returned, failures are parsed and raised in a generic fashion.
     class Request
       attr_reader :response
+      attr_accessor :options
 
       def post(path,  options = {})
+        @options  = options
         @response = Typhoeus.post(path, options)
         resolve_response if response.success?
       end
@@ -23,7 +25,7 @@ module Moodle
 
       def request_raised_exception?
         if external_services_api_exception?
-          fail MoodleError, response_body['message']
+          fail MoodleError, external_services_api_error_message
         elsif token_service_api_exception?
           fail MoodleError, response_body['error']
         end
@@ -39,6 +41,11 @@ module Moodle
 
       def token_service_api_exception?
         response_body.is_a?(Hash) && response_body['error']
+      end
+
+      def external_services_api_error_message
+        function = @options.dig(:params, :wsfunction) || 'unknown_function'
+        [function, response_body['message'], response_body['debuginfo']].compact.join(' - ')
       end
 
       # API calls that return null are considered successful
